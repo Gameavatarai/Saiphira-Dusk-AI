@@ -36,8 +36,20 @@
             versionID: 'production',
             voice: {
               url: "https://runtime-api.voiceflow.com"
+            },
+            assistant: {
+              persistence: 'localStorage' // Enable persistence using localStorage
             }
           });
+
+          // Wait a bit for the widget to be initialized and then open it
+          setTimeout(function() {
+            if (window.voiceflow.chat && window.voiceflow.chat.open) {
+              window.voiceflow.chat.open();
+            } else {
+              console.log("Voiceflow chat is not ready yet.");
+            }
+          }, 2000); // Wait for 2 seconds before opening
         }
         v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
     })(document, 'script');
