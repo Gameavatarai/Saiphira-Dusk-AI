@@ -31,22 +31,13 @@
         var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
         v.onload = function() {
           window.voiceflow.chat.load({
-            verify: { projectID: '6aff67d9f198ee85b735a817' },
+            verify: { projectID: '67d9f198ee85b735a6aff817' },
             url: 'https://general-runtime.voiceflow.com',
             versionID: 'production',
-            assistant: {
-              persistence: 'localStorage' // Enable persistence using localStorage
+            voice: {
+              url: "https://runtime-api.voiceflow.com"
             }
           });
-
-          // Wait a bit for the widget to be initialized and then open it
-          setTimeout(function() {
-            if (window.voiceflow.chat && window.voiceflow.chat.open) {
-              window.voiceflow.chat.open();
-            } else {
-              console.log("Voiceflow chat is not ready yet.");
-            }
-          }, 2000); // Wait for 2 seconds before opening
         }
         v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
     })(document, 'script');
